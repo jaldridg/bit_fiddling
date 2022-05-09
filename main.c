@@ -1,8 +1,15 @@
 #include "fiddling.c"
+#include "runtime.c"
+
+void test_function() {
+    for (int i = 0; i < 1000000000; i += 2) {
+        div2(i);
+    }
+}
 
 int main() {
-    int num = 6;
-    int new_num = div2(num);
-    printf("num: %d\tnew_num: %d\n", num, new_num);
+    void (*runtime_function)() = test_function;
+    print_runtime(runtime_function);
+
     return 0;
 }
