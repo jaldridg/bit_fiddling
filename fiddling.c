@@ -4,6 +4,10 @@ int div2(int input) {
     return input >> 1;
 }
 
+int div2reg(int input) {
+    return input / 2;
+}
+
 /*
  *  Prints the given least significant number of bits of the given integer number
  */

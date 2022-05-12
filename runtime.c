@@ -7,5 +7,5 @@ void print_runtime(void (*func)()) {
 
     clock_t end_time = clock();
     float time = (float)(end_time - start_time) / CLOCKS_PER_SEC;
-    printf("Time: %f", time);
+    printf("Time: %f\n", time);
 }
