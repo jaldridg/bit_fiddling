@@ -1,24 +1,21 @@
 #include "fiddling.c"
 #include "runtime.c"
 
-void test_function() {
-    for (int i = 0; i < 1000000000; i += 2) {
-        div2(i);
+void bit_test_function() {
+    for (int j = 0; j < 1000; j += 7) {
+        add1(j);
     }
 }
 
-void test_function_2() {
-    for (int i = 0; i < 1000000000; i += 2) {
-        div2reg(i);
+void reg_test_function() {
+    for (int j = 0; j < 1000; j += 7) {
+        add1reg(j);
     }
 }
 
 int main() {
-    void (*runtime_function)() = test_function;
-    print_runtime(runtime_function);
-
-    void (*runtime_function_2)() = test_function_2;
-    print_runtime(runtime_function_2);
+    print_runtime(bit_test_function);
+    print_runtime(reg_test_function);
 
     return 0;
 }
