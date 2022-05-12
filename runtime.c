@@ -1,5 +1,8 @@
 #include <time.h>
 
+#define MILLION 1000000
+#define BILLION 1000000000
+
 void print_runtime(void (*func)()) {
     clock_t start_time = clock();
 

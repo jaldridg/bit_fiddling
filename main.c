@@ -2,14 +2,14 @@
 #include "runtime.c"
 
 void bit_test_function() {
-    for (int j = 0; j < 1000; j += 7) {
-        add1(j);
+    for (int i = 0; i < BILLION; i++) {
+        add1(i);
     }
 }
 
 void reg_test_function() {
-    for (int j = 0; j < 1000; j += 7) {
-        add1reg(j);
+    for (int i = 0; i < BILLION; i++) {
+        add1reg(i);
     }
 }
 

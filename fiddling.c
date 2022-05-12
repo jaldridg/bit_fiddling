@@ -5,22 +5,13 @@ int div2(unsigned int input) {
 }
 
 int add1(unsigned int input) {
-    // If odd, things are interesting
-    if (input & 1) {
-        char i = 0;
-        while (input & (1 << i++));
-        //int i_mask = ~((1 << i) - 1);
-        int out = (input & ~((1 << i) - 1)) | (~input & ((1 << i) - 1));
-        printf("in %d\tout %d\n", input, out);
-        b_print(out, 32);
-        return out;
-    }
-    printf("in %d\tout %d\n", input, input | 1);
-    return input | 1;
+    char i = 0;
+    while (input & (1 << i++));
+    int mask = (1 << i) - 1;
+    return (input & ~mask) | (~input & mask);
 }
 
 int add1reg(int input) {
-    printf("in %d\tout %d\n", input, input + 1);
     return input + 1;
 }
 
