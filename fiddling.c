@@ -6,9 +6,12 @@ int div2(unsigned int input) {
 
 int add1(unsigned int input) {
     char i = 0;
-    while (input & (1 << i++));
-    int mask = (1 << i) - 1;
-    return (input & ~mask) | (~input & mask);
+    printf("in %d\t", input);
+    do {
+        input ^= (1 << i);
+    } while (input & (1 << i++));
+    printf("out %d\n", input);
+    return input;
 }
 
 int add1reg(int input) {
