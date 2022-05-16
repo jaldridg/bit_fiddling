@@ -8,14 +8,12 @@ unsigned int add1(unsigned int input) {
      // Isolate rightmost 0-bit
     unsigned int temp = ~input & (input + 1);
 
-    // Right propogate rightmost 1-bit4
-    temp |= (temp - 1);
-
-    return input ^ temp; 
+    // Right propogate rightmost 1-bit4 then XOR
+    return input ^ (temp | (temp - 1)); 
 }
 
 unsigned int add1reg(unsigned int input) {
-    return input + 1;
+    return input;
 }
 
 
