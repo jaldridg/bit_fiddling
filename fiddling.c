@@ -1,20 +1,24 @@
 #include "fiddling.h"
 
-int div2(unsigned int input) {
+unsigned int div2(unsigned int input) {
     return input >> 1;
 }
 
-int add1(unsigned int input) {
-    char i = 0;
-    do {
-        input ^= (1 << i);
-    } while (!(input & (1 << i++)));
-    return input;
+unsigned int add1(unsigned int input) {
+     // Isolate rightmost 0-bit
+    unsigned int temp = ~input & (input + 1);
+
+    // Right propogate rightmost 1-bit4
+    temp |= (temp - 1);
+
+    return input ^ temp; 
 }
 
-int add1reg(int input) {
+unsigned int add1reg(unsigned int input) {
     return input + 1;
 }
+
+
 
 /*
  *  Prints the given least significant number of bits of the given integer number

@@ -19,7 +19,7 @@ void reg_test_function() {
 
 int main() {
     print_runtime(bit_test_function);
-    //print_runtime(reg_test_function);
+    print_runtime(reg_test_function);
 
     return 0;
 }
