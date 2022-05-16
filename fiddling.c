@@ -13,7 +13,7 @@ unsigned int add1(unsigned int input) {
 }
 
 unsigned int add1reg(unsigned int input) {
-    return input;
+    return input + 1;
 }
 
 
