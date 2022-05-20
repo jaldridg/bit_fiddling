@@ -24,6 +24,21 @@ unsigned int mult9reg(unsigned int input) {
     return input * 9;
 }
 
+unsigned int div3(unsigned int input) {
+    char i = 1;
+    unsigned int output = 0;
+    //printf("in: %d\t", input);
+    do {
+        output += input >> i;
+        i+=2;
+    } while (input >> i);
+    //printf("out: %d\n", output >> 1);
+    return output >> 1;
+}
+
+unsigned int div3reg(unsigned int input) {
+    return input / 3;
+}
 /*
  *  Prints the given least significant number of bits of the given integer number
  */
