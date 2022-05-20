@@ -11,17 +11,25 @@ void test_success(unsigned int (*func_1)(unsigned int),
 }
 
 void bit_test_function() {
-    for (int i = 0; i < 10; i++) {
-        for (int j = 0; j < BILLION; j++) {
-            add1(j);
+    for (int i = 0; i < 10000; i++) {
+        for (int j = 0; j < MILLION; j++) {
+            mult9(j);
         }
     }
 }
 
 void reg_test_function() {
-    for (int i = 0; i < 10; i++) {
-        for (int j = 0; j < BILLION; j++) {
-            add1reg(j);
+    for (int i = 0; i < 10000; i++) {
+        for (int j = 0; j < MILLION; j++) {
+            mult9reg(j);
+        }
+    }
+}
+
+void reg_test_function2() {
+    for (int i = 0; i < 10000; i++) {
+        for (int j = 0; j < MILLION; j++) {
+            mult2faster(j);
         }
     }
 }
