@@ -25,15 +25,16 @@ unsigned int mult9reg(unsigned int input) {
 }
 
 unsigned int div3(unsigned int input) {
-    char i = 1;
+    char i = 2;
+    unsigned int temp = input << 2;
     unsigned int output = 0;
     //printf("in: %d\t", input);
     do {
-        output += input >> i;
+        output += temp >> i;
         i+=2;
     } while (input >> i);
     //printf("out: %d\n", output >> 1);
-    return output >> 1;
+    return (output >> 2) + 1;
 }
 
 unsigned int div3reg(unsigned int input) {
