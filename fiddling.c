@@ -25,16 +25,8 @@ unsigned int mult9reg(unsigned int input) {
 }
 
 unsigned int div3(unsigned int input) {
-    char i = 2;
-    unsigned int temp = input << 2;
-    unsigned int output = 0;
-    //printf("in: %d\t", input);
-    do {
-        output += temp >> i;
-        i+=2;
-    } while (input >> i);
-    //printf("out: %d\n", output >> 1);
-    return (output >> 2) + 1;
+    // 1431655785 was obtained from taking the maximum unsigned int divided by 3
+    return (uint32_t)(((uint64_t)input + 1) * 1431655765 >> 32);
 }
 
 unsigned int div3reg(unsigned int input) {
