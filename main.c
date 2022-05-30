@@ -13,7 +13,7 @@ void test_success(unsigned int (*func_1)(unsigned int),
 void bit_test_function() {
     for (int i = 0; i < 10; i++) {
         for (int j = 0; j < BILLION; j++) {
-            div3(j);
+            mult30(j);
         }
     }
 }
@@ -21,13 +21,13 @@ void bit_test_function() {
 void reg_test_function() {
     for (int i = 0; i < 10; i++) {
         for (int j = 0; j < BILLION; j++) {
-            div3reg(j);
+            mult30reg(j);
         }
     }
 }
 
 int main() {
-    test_success(div3, div3reg);
+    test_success(mult30, mult30reg);
     print_runtime(bit_test_function);
     print_runtime(reg_test_function);
 
