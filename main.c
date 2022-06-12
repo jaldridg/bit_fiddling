@@ -3,6 +3,9 @@
 
 #include <assert.h>
 
+/*
+ * Used when writing bit operation functions to make sure values are the same
+ */
 void test_success(unsigned int (*func_1)(unsigned int), 
                   unsigned int (*func_2)(unsigned int)) {
     for (int i = 0; i < BILLION; i++) {
@@ -13,7 +16,7 @@ void test_success(unsigned int (*func_1)(unsigned int),
 /*
  * Tests the function over a range of small and large numbers
  */
-void test_function(unsigned int (*operation_func)(unsigned int)) {
+void test_function_all(unsigned int (*operation_func)(unsigned int)) {
     for (int i = 0; i < 10; i++) {
         for (int j = 0; j < BILLION; j++) {
             operation_func(j);
@@ -45,16 +48,17 @@ void test_function_large(unsigned int (*operation_func)(unsigned int)) {
 
 int main() {
     // Function pointers to the bitwise and regular operations
-    unsigned int (*bit_op)(unsigned int) = mult30;
-    unsigned int (*reg_op)(unsigned int) = mult30reg;
+    unsigned int (*bit_operation)(unsigned int) = mult30;
+    unsigned int (*reg_operation)(unsigned int) = mult30reg;
 
-    // Function pointers to runtime test functions
-    void (*bit_test_func)(unsigned int (*bit_operation)(unsigned int)) = test_function(mult30);
-    void (*reg_test_func)(unsigned int (*reg_operation)(unsigned int)) = test_function(mult30reg);
+    // The function pointer to the testing function
+    void (*test_function)(unsigned int (*operation_function)(unsigned int)) = test_function_large;
 
-    test_success(bit_op, reg_op);
-    print_runtime(test_function(bit_op));
-    print_runtime(test_function(reg_op));
+    // test_success(bit_operation, reg_operation);
+
+    // Prints runtime of the test function using the given operation
+    print_runtime(test_function, mult30);
+    print_runtime(test_function, mult30reg);
 
     return 0;
 }
